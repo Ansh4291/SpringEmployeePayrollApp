@@ -1,19 +1,32 @@
 package com.example.springemployeepayrollapp.model;
 
+import com.example.springemployeepayrollapp.dto.EmployeeDTO;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Employee {
-    String name;
+
+    public String name;
     String department;
     String gender;
-    long Salary;
+    long salary;
     int id;
+
+    public Employee() {
+    }
 
     public String getName() {
         return name;
+    }
+    public Employee(int empId, EmployeeDTO employeeDTO) {
+        this.id = empId;
+        this.name = employeeDTO.name;
+        this.department = employeeDTO.department;
+        this.gender = employeeDTO.gender;
+        this.salary = employeeDTO.salary;
     }
     @Id
     @GeneratedValue
@@ -47,20 +60,19 @@ public class Employee {
     }
 
     public long getSalary() {
-        return Salary;
+        return salary;
     }
 
     public void setSalary(long salary) {
-        Salary = salary;
+        salary = salary;
     }
 
     public Employee(String name, String department, String gender, long salary) {
         this.name = name;
         this.department = department;
         this.gender = gender;
-        Salary = salary;
+        salary = salary;
     }
 
-    public Employee() {
-    }
+
 }
