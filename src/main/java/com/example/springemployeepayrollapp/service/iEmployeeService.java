@@ -1,21 +1,33 @@
 package com.example.springemployeepayrollapp.service;
 
+import com.example.springemployeepayrollapp.dto.EmployeeDTO;
 import com.example.springemployeepayrollapp.model.Employee;
 
 import java.util.List;
 
 public interface iEmployeeService {
 //        **********UC1***************
-    String EmployeeMessage();
+
+//    String EmployeeMessage();
 
     //    ************UC2**************
-    Employee findEmployeeById(Integer id);
 
-    Employee saveEmployees(Employee employee);
+//    Employee findEmployeeById(Integer id);
+//
+//    Employee saveEmployees(Employee employee);
+//
+//    List<Employee> findEmployees();
+//
+//    Employee editEmployee(Employee employee, Integer id);
+//
+//    String deleteEmployee(Integer id);
+//
+//    ********************UC4********************
+    List<Employee> getEmployeeData();
 
-    List<Employee> findEmployees();
+    Employee getEmployeePayrollDataById(int empId);
 
-    Employee editEmployee(Employee employee, Integer id);
+    Employee createEmployeePayrollData(EmployeeDTO employeeDTO);
 
-    String deleteEmployee(Integer id);
+    Employee updateEmployeePayrollData(EmployeeDTO employeeDTO);
 }
