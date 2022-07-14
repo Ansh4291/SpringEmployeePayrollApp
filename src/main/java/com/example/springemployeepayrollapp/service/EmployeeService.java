@@ -95,16 +95,28 @@ public class EmployeeService implements iEmployeeService{
         employeeList.add(empData);
         return empData;
     }
-    @Override
-    public Employee updateEmployeePayrollData(int empId, EmployeeDTO employeeDTO) {
-        Employee empData = this.getEmployeePayrollDataById(empId);
-        empData.setName(employeeDTO.name);
-        empData.setSalary(employeeDTO.salary);
-        employeeList.set(empId - 1, empData);
-        return empData;
-    }
+//    @Override
+//    public Employee updateEmployeePayrollData(int empId, EmployeeDTO employeeDTO) {
+//        Employee empData = this.getEmployeePayrollDataById(empId);
+//        empData.setName(employeeDTO.name);
+//        empData.setSalary(employeeDTO.salary);
+//        employeeList.set(empId - 1, empData);
+//        return empData;
+//    }
     @Override
     public void deleteEmployeePayrollData(int empID) {
         employeeList.remove(empID-1);
     }
+
+//    ***********UC6**********************
+@Override
+public Employee updateEmployeePayrollData(int empId, EmployeeDTO employeeDTO){
+    Employee empData = this.getEmployeePayrollDataById(empId);
+    empData.setName(employeeDTO.name);
+    empData.setDepartment(employeeDTO.department);
+    empData.setGender(employeeDTO.gender);
+    empData.setSalary(employeeDTO.salary);
+    employeeList.set(empId - 1, empData);
+    return empData;
+}
 }
