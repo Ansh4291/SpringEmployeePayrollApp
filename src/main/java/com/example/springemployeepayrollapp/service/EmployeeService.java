@@ -2,6 +2,8 @@ package com.example.springemployeepayrollapp.service;
 
 import com.example.springemployeepayrollapp.dto.EmployeeDTO;
 import com.example.springemployeepayrollapp.model.Employee;
+import com.example.springemployeepayrollapp.repository.EmployeeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,8 +12,8 @@ import java.util.List;
 @Service
 public class EmployeeService implements iEmployeeService{
     private List<Employee> employeeList = new ArrayList<>();
-//    @Autowired
-//    private EmployeeRepository employeeRepository;
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
 //           **********UC1***************
 
