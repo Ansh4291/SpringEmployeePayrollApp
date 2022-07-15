@@ -1,6 +1,7 @@
 package com.example.springemployeepayrollapp.service;
 
 import com.example.springemployeepayrollapp.dto.EmployeeDTO;
+import com.example.springemployeepayrollapp.exception.EmployeePayrollException;
 import com.example.springemployeepayrollapp.model.Employee;
 import com.example.springemployeepayrollapp.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,7 +89,10 @@ public class EmployeeService implements iEmployeeService{
     }
     @Override
     public Employee getEmployeePayrollDataById(int empId) {
-        return employeeList.get(empId-1);
+        return employeeList.stream()
+                .filter(empData -> empData.getId() == empId)
+                .findFirst()
+                .orElseThrow(() -> new EmployeePayrollException("Employee Not Found"));
     }
     @Override
     public Employee createEmployeePayrollData(EmployeeDTO employeeDTO){
@@ -97,14 +101,7 @@ public class EmployeeService implements iEmployeeService{
         employeeList.add(empData);
         return empData;
     }
-//    @Override
-//    public Employee updateEmployeePayrollData(int empId, EmployeeDTO employeeDTO) {
-//        Employee empData = this.getEmployeePayrollDataById(empId);
-//        empData.setName(employeeDTO.name);
-//        empData.setSalary(employeeDTO.salary);
-//        employeeList.set(empId - 1, empData);
-//        return empData;
-//    }
+
     @Override
     public void deleteEmployeePayrollData(int empID) {
         employeeList.remove(empID-1);
