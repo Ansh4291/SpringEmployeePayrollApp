@@ -5,11 +5,14 @@ import lombok.RequiredArgsConstructor;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Data
 @RequiredArgsConstructor
 public class EmployeeDTO {
+
+    @NotNull(message = "Employee Name Cannot be Null")
     @Pattern(regexp = "^[A-Z]{1}[a-zA-z\\s]{2,}$" , message = "Employee Name is Incorrect")
     public String name;
     @NotEmpty(message = "Gender Cannot be empty")
