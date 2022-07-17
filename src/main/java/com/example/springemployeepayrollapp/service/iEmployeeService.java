@@ -23,15 +23,16 @@ public interface iEmployeeService {
 //    String deleteEmployee(Integer id);
 //
 //    ********************UC4********************
-    List<Employee> getEmployeeData();
+List<Employee> getEmployeeData();
+
+
 
     Employee getEmployeePayrollDataById(int empId);
 
     Employee createEmployeePayrollData(EmployeeDTO employeeDTO);
 
-//    Employee updateEmployeePayrollData(EmployeeDTO employeeDTO);
-
     Employee updateEmployeePayrollData(int empId, EmployeeDTO employeeDTO);
 
-    void deleteEmployeePayrollData(int empID);
+    String deleteEmployeePayrollData(int empID);
 }
+
