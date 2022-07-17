@@ -1,7 +1,6 @@
 package com.example.springemployeepayrollapp.service;
 
 import com.example.springemployeepayrollapp.dto.EmployeeDTO;
-import com.example.springemployeepayrollapp.exception.EmployeePayrollException;
 import com.example.springemployeepayrollapp.model.Employee;
 import com.example.springemployeepayrollapp.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;

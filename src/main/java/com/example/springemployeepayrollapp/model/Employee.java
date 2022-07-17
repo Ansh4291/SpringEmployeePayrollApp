@@ -12,7 +12,9 @@ import java.util.List;
 
 @Data
 @RequiredArgsConstructor
+
 @Entity
+@Table(name = "employee")
 public class Employee {
     @Id
     @Column(name = "employee_id")
@@ -39,5 +41,6 @@ public class Employee {
         this.profilePic=employeePayrollDTO.profilePic;
         this.note=employeePayrollDTO.note;
     }
+
 
 }
