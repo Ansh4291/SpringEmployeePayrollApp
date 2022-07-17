@@ -3,7 +3,7 @@ package com.example.springemployeepayrollapp.controller;
 import com.example.springemployeepayrollapp.dto.EmployeeDTO;
 import com.example.springemployeepayrollapp.dto.ResponseDTO;
 import com.example.springemployeepayrollapp.model.Employee;
-import com.example.springemployeepayrollapp.service.EmployeeService;
+import com.example.springemployeepayrollapp.service.iEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 public class EmployeeController {
     @Autowired
-    EmployeeService service;
+    iEmployeeService service;
     List <Employee> empDatalist = new ArrayList<>();
 //    *********************UC1*************************
 //    @RequestMapping("/welcome")
