@@ -11,7 +11,7 @@ public class SpringEmployeePayrollAppApplication {
 
     public static void main(String[] args) {
      SpringApplication.run(SpringEmployeePayrollAppApplication.class, args);
-        log.info("Hello & Welcome to the employee payroll App");
+        log.info("Hello & Welcome to the employee payroll App.......");
     }
 
 }
