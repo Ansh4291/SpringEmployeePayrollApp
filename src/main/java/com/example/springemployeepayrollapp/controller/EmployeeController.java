@@ -98,23 +98,19 @@ public class EmployeeController {
             return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
         }
 
-        @PostMapping("/add")
-        public ResponseEntity<ResponseDTO> createEmployeePayrollData(
-                @Valid @RequestBody EmployeeDTO empPayrollDTO) {
-            Employee empData = null;
-            empData = service.createEmployeePayrollData(empPayrollDTO);
-            ResponseDTO respOTO= new ResponseDTO("Created Employee Payroll Data Successfully", empData);
-            return new ResponseEntity<ResponseDTO>(respOTO, HttpStatus.OK);
-        }
+    @PostMapping("/add")
+    public ResponseEntity<ResponseDTO> createEmployeePayrollData(
+            @Valid @RequestBody EmployeeDTO empPayrollDTO) {
+        Employee empData = service.createEmployeePayrollData(empPayrollDTO);
+        ResponseDTO respOTO= new ResponseDTO("Created Employee Payroll Data Successfully", empData);
+        return new ResponseEntity<ResponseDTO>(respOTO, HttpStatus.OK);
+    }
 
-        @PutMapping("/update/{empID}")
-        public ResponseEntity<ResponseDTO> updateEmployeePayrollData(@PathVariable("empID") int empID, @RequestBody EmployeeDTO employeeDTO) {
-            Employee empData = null;
-            empData = service.updateEmployeePayrollData(empID,employeeDTO);
-            ResponseDTO respDTO= new ResponseDTO("Updated Employee Payroll Data Successfully", empData);
-            return new ResponseEntity <ResponseDTO>(respDTO, HttpStatus.OK);
-        }
-
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ResponseDTO> updateEmployeePayrollData(@PathVariable int id,@Valid @RequestBody EmployeeDTO empPayrollDTO) {
+        ResponseDTO respDTO= new ResponseDTO("Updated Employee Details Successfully", service.updateEmployeePayrollData(id,empPayrollDTO));
+        return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+    }
         @DeleteMapping("/delete/{empId}")
         public ResponseEntity <ResponseDTO> deleteEmployeePayrollData(@PathVariable("empId") int empId) {
             service.deleteEmployeePayrollData(empId);

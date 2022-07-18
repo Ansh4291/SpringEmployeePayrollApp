@@ -33,6 +33,10 @@ List<Employee> getEmployeeData();
 
     Employee updateEmployeePayrollData(int empId, EmployeeDTO employeeDTO);
 
+
+
+
+
     String deleteEmployeePayrollData(int empID);
 }
 

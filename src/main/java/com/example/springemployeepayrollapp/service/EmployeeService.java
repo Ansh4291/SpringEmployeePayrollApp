@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -95,17 +94,12 @@ public class EmployeeService implements iEmployeeService{
     public Employee createEmployeePayrollData(EmployeeDTO employeeDTO){
         Employee empData = new Employee(employeeDTO);
         return employeeRepository.save(empData);
-
     }
     @Override
     public Employee updateEmployeePayrollData(int empId, EmployeeDTO employeeDTO){
-        Employee empData = this.getEmployeePayrollDataById(empId);
-        empData.setName(employeeDTO.name);
-        empData.setDepartment(Collections.singletonList(String.valueOf(employeeDTO.department)));
-        empData.setGender(employeeDTO.gender);
-        empData.setSalary(employeeDTO.salary);
-        employeeRepository.save(empData);
-        return empData;
+        Employee employeeDetails=new Employee(empId,employeeDTO);
+        employeeRepository.save(employeeDetails);
+        return employeeDetails;
     }
     @Override
     public String deleteEmployeePayrollData(int empID) {
